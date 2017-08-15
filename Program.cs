@@ -18,6 +18,9 @@ namespace marbles_dotnet
                 NumberOfRedMarbles= redMarbles;
             }
 
+            public int TotalMarbles() => NumberOfGreenMarbles + NumberOfBlueMarbles + NumberOfRedMarbles;
+            public int RemoveGreenMarbles() => NumberOfGreenMarbles = 0;
+
             public override string ToString()
             {
                 return $"I have {NumberOfGreenMarbles} green marbles, {NumberOfBlueMarbles} blue marbles, and {NumberOfRedMarbles} red marbles.";
@@ -28,7 +31,12 @@ namespace marbles_dotnet
         {
             var marbles = new MarbleBag(5,6,7);
             Console.WriteLine(marbles);
-
+            var total = marbles.TotalMarbles();
+            Console.WriteLine($"I have {total} marbles");
+            var removeGreen = marbles.RemoveGreenMarbles();
+            Console.WriteLine($"I now have {removeGreen} green marbles.");
+            total = marbles.TotalMarbles();
+            Console.WriteLine($"I now have {total} marbles all together");
         }
     }
 }
